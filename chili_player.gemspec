@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["guircasimiro@gmail.com"]
 
   spec.summary       = %q{Chili Gum Player API.}
-  spec.description   = %q{Easy way to integrate with your videos player.}
+  spec.description   = %q{Easy way to integrate with our videos player.}
   spec.homepage      = "https://player.chiligumvideos.com/"
   spec.license       = "MIT"
 
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+    "public gem pushes."
   end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
@@ -29,7 +29,9 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
+  
+  spec.add_development_dependency 'coveralls', '~> 0.7'
+  spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
 end
