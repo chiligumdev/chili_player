@@ -1,11 +1,15 @@
 require 'chili_player'
+require 'chili_player/version'
+require 'chili_player/links'
+require 'rest-client'
+
 # require 'chili_player/links'
 # lib/chili_player/init.rb
 module ChiliPlayer
   # init access class
   class Init
     include RestClient
-#    include ChiliPlayer::Links
+    include ChiliPlayer::Links
     
     def initialize(options = {})
       options.each do |key, value|

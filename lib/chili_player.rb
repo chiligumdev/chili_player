@@ -1,5 +1,8 @@
 require 'chili_player/version'
+require 'chili_player/init'
+require 'chili_player/links'
 require 'rest-client'
+
 module ChiliPlayer
   class << self
     def demodulize_class(class_name)
