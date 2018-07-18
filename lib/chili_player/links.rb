@@ -19,6 +19,10 @@ module ChiliPlayer
       RestClient.post(links_url, params(name, video), header_request)
     end
 
+    def delete(video_id)
+      RestClient.delete(links_url + video_id.to_s, header_request)
+    end
+
     private
 
     def params(name, video)
