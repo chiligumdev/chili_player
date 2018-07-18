@@ -3,7 +3,6 @@ require_relative 'test_helper'
 require 'minitest/autorun'
 
 class TestInit < Minitest::Test
-  
   def setup
     @token = 'ausdhuas'
   end

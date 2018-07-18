@@ -11,15 +11,15 @@ class TestLinks < Minitest::Test
     @invalid_client = ChiliPlayer::Init.new(token: 'hsudhadias')
   end
 
-  def test_valid_get_videos
-    request = @valid_client.get_videos
+  def test_valid_all_videos
+    request = @valid_client.all_videos
     assert_equal request.code, 200
     assert_equal request.body.include?('error'), false
   end
 
-  def test_invalid_get_videos
+  def test_invalid_all_videos
     assert_raises RestClient::Unauthorized do
-      @invalid_client.get_videos
+      @invalid_client.all_videos
     end
   end
 

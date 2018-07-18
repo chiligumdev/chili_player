@@ -3,6 +3,7 @@ require 'chili_player/init'
 require 'chili_player/links'
 require 'rest-client'
 
+# lib/chili_player.rb
 module ChiliPlayer
   class << self
     def demodulize_class(class_name)

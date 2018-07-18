@@ -7,7 +7,7 @@ require 'rest-client'
 module ChiliPlayer
   # init access class
   module Links
-    def get_videos
+    def all_videos
       RestClient.get(links_url, header_request)
     end
 

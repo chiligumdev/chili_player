@@ -10,7 +10,7 @@ module ChiliPlayer
   class Init
     include RestClient
     include ChiliPlayer::Links
-    
+
     def initialize(options = {})
       options.each do |key, value|
         instance_variable_set("@#{key}", value)
