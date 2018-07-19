@@ -3,7 +3,7 @@ require_relative 'test_helper'
 require 'minitest/autorun'
 require 'json'
 
-class TestLinks < Minitest::Test
+class TestVideos < Minitest::Test
   def setup
     @valid_client = ChiliPlayer::Init.new(token: ENV['VALID_TOKEN'])
     valid_delete = @valid_client.upload('delete-test', 'test.mp4')

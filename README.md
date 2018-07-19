@@ -57,7 +57,7 @@ If you want to delete a previous uploaded video, you just need to pass the id of
     response = client.delete(video_id)
     response.body
 
-If the id is valid, this method returns the message `{"msg": "deleted"}`
+If the video_id is valid, this method returns the message `{"msg": "deleted"}`
 
 ## Development
 

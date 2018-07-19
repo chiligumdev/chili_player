@@ -2,11 +2,10 @@ require 'chili_player'
 require 'chili_player/init'
 require 'rest-client'
 
-# require 'chili_player/links'
-# lib/chili_player/init.rb
+# lib/chili_player/videos.rb
 module ChiliPlayer
-  # init access class
-  module Links
+  # videos module
+  module Videos
     def all_videos
       RestClient.get(links_url, header_request)
     end

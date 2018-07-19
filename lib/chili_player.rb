@@ -1,6 +1,6 @@
 require 'chili_player/version'
 require 'chili_player/init'
-require 'chili_player/links'
+require 'chili_player/videos'
 require 'rest-client'
 
 # lib/chili_player.rb
