@@ -1,4 +1,4 @@
-# ChiliPlayer [![Build Status](https://travis-ci.org/chiligumdev/chili_player.svg?branch=master)](https://travis-ci.org/chiligumdev/chili_player)
+# ChiliPlayer [![Build Status](https://travis-ci.org/chiligumdev/chili_player.svg?branch=master)](https://travis-ci.org/chiligumdev/chili_player) [![Coverage Status](https://coveralls.io/repos/github/chiligumdev/chili_player/badge.svg?branch=master)](https://coveralls.io/github/chiligumdev/chili_player?branch=master)
 
 Lib to easily call [Chili Player API](https://player.chiligumvideos.com/)
 
