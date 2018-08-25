@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    chili_player (0.1.0)
+    chili_player (0.1.2)
 
 GEM
   remote: https://rubygems.org/
