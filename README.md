@@ -23,7 +23,7 @@ Or install it yourself as:
 First of all, you need to sign in [chili player](https://player.chiligumvideos.com/) and then you need to get your credential.
 After you get `token`, you can instantiate the class as in this example:
 
-    client = ChiliGum::Init.new(token: 'your-token')
+    client = ChiliPlayer::Init.new(token: 'your-token')
 
 ## Videos
 
