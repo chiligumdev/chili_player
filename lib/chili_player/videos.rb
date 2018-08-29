@@ -14,8 +14,8 @@ module ChiliPlayer
       RestClient.get(links_url + video_id.to_s, header_request)
     end
 
-    def upload(name, video)
-      RestClient.post(links_url, params(name, video), header_request)
+    def upload(name, video, options = {})
+      RestClient.post(links_url, params(name, video, options), header_request)
     end
 
     def delete(video_id)
@@ -24,13 +24,12 @@ module ChiliPlayer
 
     private
 
-    def params(name, video)
-      {
-        video: {
-          name: name,
-          data: File.new(video, 'rb')
-        }
-      }
+    def params(name, video, options)
+      data = { video: {} }
+      data[:video][:name] = name
+      data[:video][:data] = File.new(video, 'rb')
+      data[:video].merge!(options)
+      data
     end
   end
 end
