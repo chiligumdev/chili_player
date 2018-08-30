@@ -23,10 +23,13 @@ class TestVideos < Minitest::Test
     end
   end
 
-  def test_valid_get_video
+  def test_valid_get_video_and_update
     request = @valid_client.get_video(166)
     assert_equal request.code, 200
     assert_equal request.body.include?('error'), false
+    request_update = @valid_client.update(166, name: 'Update test')
+    assert_equal request_update.code, 200
+    assert_equal request_update.body.include?('error'), false
   end
 
   def test_invalid_get_video
