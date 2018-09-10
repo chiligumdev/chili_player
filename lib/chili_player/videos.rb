@@ -7,19 +7,24 @@ module ChiliPlayer
   # videos module
   module Videos
     def videos
-      RestClient.get(endpoint_url, header_request)
+      response = RestClient.get(endpoint_url, header_request)
+      JSON.parse response
     end
 
     def video(video_id)
-      RestClient.get(endpoint_url + video_id.to_s, header_request)
+      response = RestClient.get(endpoint_url + video_id.to_s, header_request)
+      JSON.parse response
     end
 
     def upload(name, video)
-      RestClient.post(endpoint_url, params(name, video), header_request)
+      response = RestClient.post(endpoint_url,
+                                 params(name, video), header_request)
+      JSON.parse response
     end
 
     def delete(video_id)
-      RestClient.delete(endpoint_url + video_id.to_s, header_request)
+      response = RestClient.delete(endpoint_url + video_id.to_s, header_request)
+      JSON.parse response
     end
 
     private

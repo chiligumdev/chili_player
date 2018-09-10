@@ -2,6 +2,7 @@ require 'chili_player'
 require 'chili_player/version'
 require 'chili_player/videos'
 require 'rest-client'
+require 'json'
 
 # lib/chili_player/init.rb
 module ChiliPlayer
