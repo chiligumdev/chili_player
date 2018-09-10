@@ -7,14 +7,13 @@ class TestVideos < Minitest::Test
   def setup
     @valid_client = ChiliPlayer::Init.new(token: ENV['VALID_TOKEN'])
     valid_delete = @valid_client.upload('delete-test', 'test.mp4')
-    @id_v_delete = JSON.parse(valid_delete.body)['id']
+    @id_v_delete = valid_delete['id']
     @invalid_client = ChiliPlayer::Init.new(token: 'hsudhadias')
   end
 
   def test_valid_all_videos
     request = @valid_client.all_videos
-    assert_equal request.code, 200
-    assert_equal request.body.include?('error'), false
+    assert_equal request.nil?, false
   end
 
   def test_invalid_all_videos
@@ -25,11 +24,9 @@ class TestVideos < Minitest::Test
 
   def test_valid_get_video_and_update
     request = @valid_client.get_video(166)
-    assert_equal request.code, 200
-    assert_equal request.body.include?('error'), false
+    assert_equal request.nil?, false
     request_update = @valid_client.update(166, name: 'Update test')
-    assert_equal request_update.code, 200
-    assert_equal request_update.body.include?('error'), false
+    assert_equal request_update.nil?, false
   end
 
   def test_invalid_get_video
@@ -40,9 +37,7 @@ class TestVideos < Minitest::Test
 
   def test_valid_upload
     request = @valid_client.upload('valid_test', 'test.mp4')
-
-    assert_equal request.code, 200
-    assert_equal request.body.include?('error'), false
+    assert_equal request.nil?, false
   end
 
   def test_invalid_upload
@@ -53,7 +48,7 @@ class TestVideos < Minitest::Test
 
   def test_valid_delete
     request = @valid_client.delete(@id_v_delete)
-    assert_equal request.body, '{"msg":"deleted"}'
+    assert_equal request, 'msg' => 'deleted'
   end
 
   def test_invalid_delete
