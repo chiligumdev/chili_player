@@ -4,25 +4,22 @@ require 'chili_player/videos'
 require 'rest-client'
 require 'json'
 
-# lib/chili_player/init.rb
-module ChiliPlayer
-  # init access class
-  class Init
-    include RestClient
-    include ChiliPlayer::Videos
+# init access class
+class Player
+  include RestClient
+  include Videos
 
-    def initialize(options = {})
-      instance_variable_set('@token', options)
-    end
+  def initialize(options = {})
+    instance_variable_set('@token', options)
+  end
 
-    private
+  private
 
-    def header_request
-      { token: @token }
-    end
+  def header_request
+    { token: @token }
+  end
 
-    def endpoint_url
-      ChiliPlayer::ENDPOINT_URL
-    end
+  def endpoint_url
+    ChiliPlayer::ENDPOINT_URL
   end
 end
