@@ -13,6 +13,6 @@ class TestInit < Minitest::Test
   end
 
   def test_url
-    assert_equal ChiliPlayer::LINKS_URL, 'https://player.chiligumvideos.com/api/videos/'
+    assert_equal ChiliPlayer::ENDPOINT_URL, 'https://player.chiligumvideos.com/api/videos/'
   end
 end

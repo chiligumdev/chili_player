@@ -20,8 +20,8 @@ module ChiliPlayer
       { token: @token }
     end
 
-    def links_url
-      ChiliPlayer::LINKS_URL
+    def endpoint_url
+      ChiliPlayer::ENDPOINT_URL
     end
   end
 end
