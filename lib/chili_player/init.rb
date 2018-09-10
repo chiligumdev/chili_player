@@ -11,9 +11,7 @@ module ChiliPlayer
     include ChiliPlayer::Videos
 
     def initialize(options = {})
-      options.each do |key, value|
-        instance_variable_set("@#{key}", value)
-      end
+      instance_variable_set('@token', options)
     end
 
     private
