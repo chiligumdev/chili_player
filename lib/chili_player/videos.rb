@@ -6,11 +6,11 @@ require 'rest-client'
 module ChiliPlayer
   # videos module
   module Videos
-    def all_videos
+    def videos
       RestClient.get(endpoint_url, header_request)
     end
 
-    def get_video(video_id)
+    def video(video_id)
       RestClient.get(endpoint_url + video_id.to_s, header_request)
     end
 
