@@ -32,30 +32,38 @@ After you had instantiate the class, to manipulate the API endpoints we provide 
 ### List all videos
 
     response = client.all_videos
-    response.body
     
-This method returns the entire response to chili player call, the `.body` returns an array of hashes containing information for all links createad in your account 
+This method returns an array containing hashes of all information about the videos created, e.g:
+
+    [{"id"=>164, "data"=>"https://s3.amazonaws.com/chilihls/uploads/7d00f8054103d0a3824e59a3689743d69faf4d4b.mp4", "player_url"=>"https://player.chiligumvideos.com/d6d791b7a8", "postback_url"=>nil, "preserve_original_file"=>true, "activated"=>true, "watermark_image_url"=>nil, "watermark_link"=>nil, "watermark_position"=>nil, "wartermark_start"=>nil, "watermark_duration"=>nil, "created_at"=>"2018-06-27T16:43:28.026Z"}, {"id"=>162, "data"=>"https://s3.amazonaws.com/chilihls/uploads/d24ceab72878a4fcdb2c4b52b6d1ef0c67a2ed43.mp4", "player_url"=>"https://player.chiligumvideos.com/dff4f6b549", "postback_url"=>nil, "preserve_original_file"=>true, "activated"=>true, "watermark_image_url"=>nil, "watermark_link"=>nil, "watermark_position"=>nil, "wartermark_start"=>nil, "watermark_duration"=>nil, "created_at"=>"2018-06-19T17:56:50.498Z"}] 
+
 
 ### Get a specific video
 
     response = client.get_video(video_id)
-    response.body
 
-If video_id exists this call returns all information about the requested video.
+If video_id exists this call returns all information about the requested video, e.g:
+
+    {"id"=>5212, "data"=>"https://s3.amazonaws.com/chilihls/uploads/9f46c3365c3f20cb32d82dd795fdb664fa363d33.mp4", "player_url"=>"https://player.chiligumvideos.com/db4d980eef", "postback_url"=>nil, "preserve_original_file"=>true, "activated"=>true, "watermark_image_url"=>nil, "watermark_link"=>nil, "watermark_position"=>nil, "wartermark_start"=>nil, "watermark_duration"=>nil, "created_at"=>"2018-08-30T18:11:16.907Z"}
 
 ### Upload video
-In order to upload video, you must pass as parameters the video's title and the video file you want to upload.
+In order to upload a video, you must pass as parameters the video's title, the video file you want to upload and also optional parameters such as: name, postback_url, preserve_original_file, activated, watermark_image_url, watermark_link, watermark_position, wartermark_start, watermark_duration.
 
-    response = client.upload(name_video, video_file)
-    response.body
+    response = client.upload(name_video, video_file, video_optional_params)
 
-This method returns all information about your uploaded video, such as id, name, duration, token and so forth.
+This method returns all information displayed at 'Get a specific video' topic.
+
+### Update video
+In order to update a video, you must pass as parameters the video's id and also optional parameters such as: name, postback_url, preserve_original_file, activated, watermark_image_url, watermark_link, watermark_position, wartermark_start, watermark_duration. When you update the video, you cannot change the video's file.
+
+    response = client.upload(video_id, video_optional_params)
+
+This method returns all information displayed at 'Get a specific video' topic.
 
 ### Delete a video
 If you want to delete a previous uploaded video, you just need to pass the id of this video
 
     response = client.delete(video_id)
-    response.body
 
 If the video_id is valid, this method returns the message `{"msg": "deleted"}`
 
@@ -75,4 +83,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the ChiliPlayer project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/urli_me/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ChiliPlayer project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/chili_player/blob/master/CODE_OF_CONDUCT.md).
