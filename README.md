@@ -23,7 +23,7 @@ Or install it yourself as:
 First of all, you need to sign in [chili player](https://player.chiligumvideos.com/) and then you need to get your credential.
 After you get `token`, you can instantiate the class as in this example:
 
-    client = ChiliPlayer::Init.new(token: 'your-token')
+    client = Player.new('your-token')
 
 ## Videos
 
@@ -31,7 +31,7 @@ After you had instantiate the class, to manipulate the API endpoints we provide 
 
 ### List all videos
 
-    response = client.all_videos
+    response = client.videos
     
 This method returns an array containing hashes of all information about the videos created, e.g:
 
@@ -40,7 +40,7 @@ This method returns an array containing hashes of all information about the vide
 
 ### Get a specific video
 
-    response = client.get_video(video_id)
+    response = client.video(video_id)
 
 If video_id exists this call returns all information about the requested video, e.g:
 
