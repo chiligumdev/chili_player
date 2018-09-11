@@ -1,29 +1,31 @@
 # test/test_links.rb
 require_relative 'test_helper'
 require 'minitest/autorun'
+require 'rest-client'
 require 'json'
 
 class TestVideos < Minitest::Test
+
   def setup
-    @valid_client = ChiliPlayer::Init.new(token: ENV['VALID_TOKEN'])
+    @valid_client = Player.new(ENV['VALID_TOKEN'])
     valid_delete = @valid_client.upload('delete-test', 'test.mp4')
     @id_v_delete = valid_delete['id']
-    @invalid_client = ChiliPlayer::Init.new(token: 'hsudhadias')
+    @invalid_client = Player.new('hsudhadias')
   end
 
   def test_valid_all_videos
-    request = @valid_client.all_videos
+    request = @valid_client.videos
     assert_equal request.nil?, false
   end
 
   def test_invalid_all_videos
     assert_raises RestClient::Unauthorized do
-      @invalid_client.all_videos
+      @invalid_client.videos
     end
   end
 
   def test_valid_get_video_and_update
-    request = @valid_client.get_video(166)
+    request = @valid_client.video(166)
     assert_equal request.nil?, false
     request_update = @valid_client.update(166, name: 'Update test')
     assert_equal request_update.nil?, false
@@ -31,7 +33,7 @@ class TestVideos < Minitest::Test
 
   def test_invalid_get_video
     assert_raises RestClient::Unauthorized do
-      @invalid_client.get_video(166)
+      @invalid_client.video(166)
     end
   end
 
