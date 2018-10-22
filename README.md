@@ -56,7 +56,7 @@ This method returns all information displayed at 'Get a specific video' topic.
 ### Update video
 In order to update a video, you must pass as parameters the video's id and also optional parameters such as: name, postback_url, preserve_original_file, activated, watermark_image_url, watermark_link, watermark_position, wartermark_start, watermark_duration. When you update the video, you cannot change the video's file.
 
-    response = client.upload(video_id, video_optional_params)
+    response = client.update(video_id, video_optional_params)
 
 This method returns all information displayed at 'Get a specific video' topic.
 
