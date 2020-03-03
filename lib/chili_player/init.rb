@@ -11,15 +11,19 @@ class Player
 
   def initialize(options = {})
     instance_variable_set('@token', options)
+    instance_variable_set('@external_id', options)
   end
 
   private
 
   def header_request
-    { token: @token }
+    {
+      token: @token.to_s,
+      'external-id' => @external_id.to_s
+    }
   end
 
   def endpoint_url
-    ChiliPlayer::ENDPOINT_URL
+    ChiliPlayer::ALLOWED_URLS.include?(@url) ? @url : ChiliPlayer::DEFAULT_URL
   end
 end
